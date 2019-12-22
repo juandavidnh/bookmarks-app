@@ -74,7 +74,8 @@ class App extends Component {
           <Route
             exact
             path='/'
-            component={BookmarkList}
+            render={() => 
+            <BookmarkList />}
           />
         </div>
         </BookmarksContext.Provider>
