@@ -15,19 +15,5 @@ export default function Rating(props) {
   );
 }
 
-Rating.propTypes = {
-  value: (props, propName, componentName) => {
-    const prop = props[propName];
 
-    if(!prop) {
-      return new Error(`${propName} is required in ${componentName}. Validation Failed`)
-    }
-    if (typeof prop != 'number') {
-      return new Error(`Invalid prop, ${propName} is expected to be a number in ${componentName}. ${typeof prop} found.`)
-    }
-    if(prop<1 || prop>5){
-      return new Error(`Invalid prop, ${propName} should be in range 1-5 in ${componentName}. ${prop} found.`)
-    }
-  }
-};
 
