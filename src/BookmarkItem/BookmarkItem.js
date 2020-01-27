@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 import Rating from '../Rating/Rating';
 import BookmarksContext from '../BookmarksContext';
 import config from '../config';
@@ -15,11 +16,8 @@ function deleteBookmarkRequest(bookmarkId, callback){
   })
   .then(res => {
     if(!res.ok){
-      return res.json().then(error => {
-        throw error
-      })
+      return res.json().then(error => Promise.reject(error))
     }
-    return res.json()
   })
   .then(data => {
     callback(bookmarkId)
@@ -60,6 +58,9 @@ export default function BookmarkItem(props) {
         >
           Delete
         </button>
+        <Link to={`/edit/${props.id}`}>
+          Edit
+        </Link>
       </div>
     </li>
     )}
