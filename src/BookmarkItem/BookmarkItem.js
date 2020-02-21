@@ -11,7 +11,7 @@ function deleteBookmarkRequest(bookmarkId, callback){
     method: 'DELETE',
     headers: {
       'content-type': 'application/json',
-      'authorization': `bearer ${config.API_KEY}`
+      'authorization': `${config.API_KEY}`
     }
   })
   .then(res => {
